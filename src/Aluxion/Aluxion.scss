@@ -121,6 +121,9 @@
                         // height: 200%;
                         // background-color: pink;
                         @include flex( column, nowrap, center, center);
+                        &.activo{
+                            transform: translateY(-50%);
+                        }
                         .contenedor-texto{
                             @include flex( column, nowrap, center, flex-start);
                             .span-texto{

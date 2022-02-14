@@ -87,24 +87,9 @@ const Aluxion = ({ }) => {
     let alturaElemento = () => {
         return `calc(100% / ${cantidadElementos})`
     }
-
-
-
-
-
-
-
-    let desplazamientoVertical = () => {
-        return `calc(${posicion}*(-100/${cantidadElementos})%)`
-    }
-
-
-
-
-
-
-
-
+    // let desplazamientoVertical = () => {
+    //     return `calc(${posicion}*(-100/${cantidadElementos})%)`
+    // }
     // Estado Menú
     let [menu, setMenu] = useState(false)
     let cambiarMenu = () => {
@@ -119,10 +104,8 @@ const Aluxion = ({ }) => {
         setPosicionMenu(-1)
     }
     useEffect(()=>{
-        setPosicion(posicion)
-        desplazamientoVertical()
-        console.log(desplazamientoVertical())
-    }, [posicion]);
+        
+    }, []);
 
     return (
         <div className='Aluxion'>
@@ -131,8 +114,6 @@ const Aluxion = ({ }) => {
                     <button className={`logo ${(menu) ? 'activo' : ''}`}>
                         <a href="#" className='mater'>mater</a>
                     </button>
-                    Lo que devuelve desplazamientoVertical(): {desplazamientoVertical()}   || posicion: {posicion}
-
                     <div
                         className={`hamburguesa ${(menu) ? 'activo' : ''}`}
                         onClick={cambiarMenu}>
@@ -150,8 +131,7 @@ const Aluxion = ({ }) => {
                         <div className="caja-texto">
                             <div className="slider-texto"
                                 style={{
-                                    height: `${alturaSlider()}`,
-                                    transform: `translateY(${desplazamientoVertical()})`
+                                    height: `${alturaSlider()}`
                                 }}>
                                 {
                                     data.map((texto, i) =>
@@ -183,8 +163,7 @@ const Aluxion = ({ }) => {
                     <div className="drc">
                         <div className="slider"
                             style={{
-                                height: `${alturaSlider()}`,
-                                transform: `${desplazamientoVertical()}`,
+                                height: `${alturaSlider()}`
                             }}>
                             {
                                 data.map((texto, i) =>
