@@ -87,9 +87,9 @@ const Aluxion = ({ }) => {
     let alturaElemento = () => {
         return `calc(100% / ${cantidadElementos})`
     }
-    // let desplazamientoVertical = () => {
-    //     return `calc(${posicion}*(-100/${cantidadElementos})%)`
-    // }
+    let desplazamientoVertical = () => {
+        return `${ posicion * (-100 / cantidadElementos)}%`
+    }
     // Estado Menú
     let [menu, setMenu] = useState(false)
     let cambiarMenu = () => {
@@ -103,9 +103,7 @@ const Aluxion = ({ }) => {
     let devolverPosicionMenu = ()=>{
         setPosicionMenu(-1)
     }
-    useEffect(()=>{
-        
-    }, []);
+
 
     return (
         <div className='Aluxion'>
@@ -114,6 +112,8 @@ const Aluxion = ({ }) => {
                     <button className={`logo ${(menu) ? 'activo' : ''}`}>
                         <a href="#" className='mater'>mater</a>
                     </button>
+                    {/* Lo que devuelve desplazamientoVertical(): {desplazamientoVertical()}   || posicion: {posicion} */}
+
                     <div
                         className={`hamburguesa ${(menu) ? 'activo' : ''}`}
                         onClick={cambiarMenu}>
@@ -131,11 +131,12 @@ const Aluxion = ({ }) => {
                         <div className="caja-texto">
                             <div className="slider-texto"
                                 style={{
-                                    height: `${alturaSlider()}`
+                                    height: `${alturaSlider()}`,
+                                    transform: `translateY(${desplazamientoVertical()})`,
                                 }}>
                                 {
                                     data.map((texto, i) =>
-                                        <div className="contenedor-texto"
+                                        <div className={`contenedor-texto ${(posicion == i) ? 'activo' : ''}`}
                                             key={i}
                                             style={{
                                                 height: `${alturaElemento()}`
@@ -163,12 +164,14 @@ const Aluxion = ({ }) => {
                     <div className="drc">
                         <div className="slider"
                             style={{
-                                height: `${alturaSlider()}`
+                                height: `${alturaSlider()}`,
+                                transform: `translateY(${desplazamientoVertical()})`
+                                // backgroundColor : 'pink'
                             }}>
                             {
                                 data.map((texto, i) =>
                                     <div
-                                        key={i} className="contenedor-imagen"
+                                        key={i} className={`contenedor-imagen ${(posicion == i) ? 'activo' : ''}`}
                                         style={{ height: `${alturaElemento()}` }}>
                                         <img src={texto.imgSrc} alt={texto.titulo} />
                                     </div>)

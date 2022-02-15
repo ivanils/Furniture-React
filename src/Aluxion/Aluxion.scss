@@ -118,14 +118,17 @@
                     .slider-texto{
                         transform: translateY(0%);
                         font-weight: 600;
+                        transition: 1.5s;
                         // height: 200%;
                         // background-color: pink;
                         @include flex( column, nowrap, center, center);
-                        &.activo{
-                            transform: translateY(-50%);
-                        }
                         .contenedor-texto{
                             @include flex( column, nowrap, center, flex-start);
+                            opacity: 0;
+                            transition: .5s;
+                            &.activo{
+                                opacity: 1;
+                            }
                             .span-texto{
                                 font-size: .8rem;
                                 color: var(--gris);
@@ -165,9 +168,16 @@
                     width: 100%;
                     // background-color: lightcyan;
                     @include flex( column, nowrap, center, center);
-                    // transform: translateY(-0%);
+                    transform: translateY(-0%);
+                    transition: 1.5s;
+
                     .contenedor-imagen{
+                        opacity: 0;
+                        transition: 1s;
                         width: 100%;
+                        &.activo{
+                            opacity: 1;
+                        }
                         @include flex( column, nowrap, center, center);
                         img{
                             width: 60%;
