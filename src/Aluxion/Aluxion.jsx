@@ -153,7 +153,7 @@ const Aluxion = ({ }) => {
                         <div className="boton-details">
                             {
                                 data.map((texto, i) =>
-                                    <button key={i} className='btn-details activo'>
+                                    <button key={i} className={`btn-details ${(posicion == i) ? 'activo' : ''}`}>
                                         <a href={texto.enlace}>
                                             Product Details
                                         </a>
@@ -217,7 +217,8 @@ const Aluxion = ({ }) => {
                             )}
                         </div>
                     </div>
-                    <div className="menu-drc"></div>
+                    <div className="menu-drc">
+                    </div>
                 </div>
             </div>
         </div>

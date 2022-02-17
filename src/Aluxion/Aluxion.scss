@@ -16,6 +16,9 @@
         height: 100%;
         // background-color: turquoise;
         position: relative;
+        // @media screen and(max-width:1550px) {
+        //     width: 70%;
+        // }
         .header {
             position: absolute;
             top: 4rem;
@@ -29,6 +32,9 @@
                 font-size: 1.3rem;
                 font-weight: 600;
                 transition: 1s;
+                @media screen and(max-width:1550px) {
+                    font-size: 1.1rem;
+                }
                 &.activo{
                     color: white;
                 }
@@ -41,6 +47,10 @@
                 border: 2px solid #d3d3d3;
                 transition: all .5s ease;
                 cursor: pointer;
+                @media screen and(max-width:1550px) {
+                    width: 2.5rem;
+                    height: 2.5rem;
+                }
                 &.activo{
                     border: 2px solid white;
                     background-color: black;
@@ -68,6 +78,10 @@
                         height: 1.2rem;
                         @include flex(column, nowrap, center, center);
                         position: relative;
+                        @media screen and(max-width:1550px) {
+                            width: 1rem;
+                            height: 1rem;
+                        }
                         .top {
                             transition: all .5s ease;
                             position: absolute;
@@ -105,16 +119,25 @@
             height: 100%;
             // background-color: seagreen;
             @include flex(row, nowrap, center, center);
+            @media screen and(max-width:1000px) {
+                @include flex(column, nowrap, center, center);
+            }
             .izq{
                 flex-basis: 37%;
                 height: 100%;
                 // background-color: rgb(192, 192, 0);
                 .caja-texto{
                     overflow: hidden;
-                    width: 100%;
+                    width: 55%;
                     height: 13rem;
                     // background-color: red;
-                    margin: 60% 0 0;
+                    margin: 40% 0 0;
+                    @media screen and(max-width:1550px) {
+                        width: 80%;
+                    }
+                    @media screen and(max-width:1000px) {
+                        margin: 15vh 0 0 0;
+                    }
                     .slider-texto{
                         transform: translateY(0%);
                         font-weight: 600;
@@ -126,18 +149,27 @@
                             @include flex( column, nowrap, center, flex-start);
                             opacity: 0;
                             transition: .5s;
+                            @media screen and(max-width:1550px) {
+                                font-size: 90%
+                            }
                             &.activo{
                                 opacity: 1;
                             }
                             .span-texto{
                                 font-size: .8rem;
                                 color: var(--gris);
+                                @media screen and(max-width:1550px) {
+                                    font-size: 90%
+                                }
                             }
                             .h2-texto{
                                 margin: 1rem 0 2rem;
                                 font-size: 1.3rem;
                             }
                             .p-texto{
+                                @media screen and(max-width:1550px) {
+                                    font-size: 90%
+                                }
                                 font-size: .9rem;
                                 color: var(--gris);
                             }
@@ -154,6 +186,10 @@
                         top: 0;
                         left: 0;
                         display: none;
+                        @media screen and(max-width:1550px) {
+                            font-size: 80%;
+                            padding: .8rem;
+                        }
                         &.activo{
                             display: block;
                         }
@@ -163,14 +199,20 @@
             .drc{
                 flex-basis: 63%;
                 height: 100%;
-                // background-color: lightcoral;
-                .slider{
+                @media screen and(max-width:1000px) {
+                    height: 50%;
                     width: 100%;
+                }
+                .slider{
+                    width: 80%;
+                    margin: auto;
                     // background-color: lightcyan;
                     @include flex( column, nowrap, center, center);
                     transform: translateY(-0%);
                     transition: 1.5s;
-
+                    @media screen and(max-width:1400px) {
+                        width: 100%;
+                    }
                     .contenedor-imagen{
                         opacity: 0;
                         transition: 1s;
@@ -181,6 +223,10 @@
                         @include flex( column, nowrap, center, center);
                         img{
                             width: 60%;
+                            @media screen and(max-width:550px) {
+                                width: 90%;
+                                
+                            }
                         }
                     }
                 }
@@ -191,8 +237,10 @@
             width: 100%;
             @include flex( row, nowrap, flex-start, center);
             bottom: 0;
-            // background-color: aqua;
             z-index: 2;
+            @media screen and(max-width:550px) {
+                @include flex( row, nowrap, space-around, center);
+            }
             &::before{
                 content: '';
                 width: 200%;
@@ -201,15 +249,28 @@
                 position: absolute;
                 top: 0;
                 right: -50%;
+                @media screen and(max-width:1550px) {
+                    height: 2px;
+                }
             }
             .opcion{
                 // background-color: magenta;
                 height: 4rem;
-                min-width: 10rem;
+                min-width: 8rem;
+                padding-right: 2rem;
                 position: relative;
-                margin-right: 2rem;
+                margin-right: 4rem;
+                margin-bottom: 1rem;
                 color: var(--gris);
-                padding-bottom: .5rem;
+                @media screen and(max-width:1550px) {
+                    height: 3.5rem;
+                    margin-bottom: .5rem;
+                }
+                @media screen and(max-width:550px) {
+                    min-width: 30%;
+                    margin-right: 0;
+                    padding-right: 0;
+                }
                 &::after{
                     content: '';
                     width: 100%;
@@ -221,6 +282,9 @@
                     transform-origin: left;
                     transform: scaleX(0);
                     transition: 1s ease-in-out;
+                    @media screen and(max-width:1550px) {
+                        height: 2px;
+                    }
                 }
                 .a-opcion{
                     height: 100%;
@@ -228,6 +292,9 @@
                     .numero, .titulo-opcion{
                         font-weight: 600;
                         font-size: .8rem;
+                        @media screen and(max-width:1550px) {
+                            font-size: .75rem;
+                        }
                     }
                     .titulo-opcion{
                         transition: 1s;
@@ -272,9 +339,11 @@
                 width: 30%;
                 height: 100%;
                 transition: transform 2.5s ease, opacity 3s ease;
-                // transition-delay: opacity -1.5s;
-                // background-color: red;
                 @include flex(column, nowrap, center, center);
+                @media screen and(max-width:550px) {
+                    width: 90%;
+                    @include flex(column, nowrap, flex-start, center);
+                }
                 .secciones{
                     margin-top: 40%;
                     height: 70%;
@@ -323,6 +392,9 @@
                     @include flex(row, wrap, center, center);
                     .span-foot{
                         @include flex(row, nowrap, flex-start, center);
+                        @media screen and(max-width:550px) {
+                            @include flex(column, nowrap, center, center);
+                        }
                         flex-basis: calc(100%/3);
                         margin: 1rem 0;
                         font-size: .8rem;
@@ -338,9 +410,12 @@
                 }
             }
             .menu-drc{
+                @media screen and(max-width:550px) {
+                    display: none;
+                }
                 width: 70%;
                 height: 100%;
-                // background-color: violet;
+                
             }
         }
     }
